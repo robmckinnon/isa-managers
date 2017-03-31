@@ -5,7 +5,8 @@ data/list.tsv:
 	curl -s https://www.gov.uk/government/publications/list-of-authorised-isa-managers/isas-authorised-managers \
 	| sed 's/<\/td>//g' \
 	| awk 'NF' \
-	| grep -A 4 '<tr>' \
+	| grep -A 5 '<tr>' \
+	| grep -v '</tr>' \
 	| grep -v '<th>' \
 	| grep -v '<tr>' \
 	| sed -E 's/<abbr title="limited liability partnership">LLP<\/abbr>/LLP/g' \
